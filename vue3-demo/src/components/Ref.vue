@@ -13,8 +13,8 @@ export default {
     a: {
       type: String,
       default () {
-        console.log('----')
-        console.log(this)
+        // console.log('----')
+        // console.log(this)
         return "2"
       }
     }

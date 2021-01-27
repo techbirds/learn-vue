@@ -1,11 +1,45 @@
-<template>
-  <div class="hello">
-        <!-- <B inline-template>
-          <div>223345</div>
-        </B>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app {
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 60px;
+    }
 
-        <input type="text" v-on:keyup.13="show">
-    <h1>{{ msg }}</h1> -->
+    h3 {
+      margin: 40px 0 0;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    a {
+      color: #42b983;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</body>
+<script>
+
+  const HelloWorld = {
+    template: `
+  <div class="hello">
+    <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -32,55 +66,26 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
-
-    <!-- <A v-for="a in 1000"
-      :key="a"
-      v-model="username"
-      required
-      placeholder="Enter your username"
-      label="xxx"
-    ></A>  -->
-
-
   </div>
-</template>
-
-<script>
-
-// import A from './Attrs'
-// import B from './Ref'
-
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
-  components: {
-    // A,
-    // B
-  },
-  methods: {
-    show () {
-      alert(1)
+    `,
+    props: {
+      msg: String
     }
   }
-}
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+  new Vue({
+    el: "#app",
+    components: {
+      HelloWorld
+    },
+    template: `
+      <div id="app">
+        <img alt="Vue logo" src="./assets/logo.png">
+        <HelloWorld msg="Welcome to Your Vue.js App" v-for="n in 3000" :key="n"></HelloWorld>
+      </div>
+    `
+  })
+
+
+</script>
+</html>
